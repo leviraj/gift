@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14171d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Xmas Chat">
+<title>Christmas Chat</title>
+<link rel="apple-touch-icon" id="touchIcon" href="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="gavatar" id="gavatar">🎄</div>
+    <div class="titles">
+      <h1 id="title"></h1>
+      <p id="subtitle"></p>
+    </div>
+    <div class="menu-wrap">
+      <button id="menuBtn" class="icon-btn" aria-label="Menu" aria-haspopup="true" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+      </button>
+      <div id="menu" class="popover" hidden>
+        <button id="resetBtn" class="menu-item">Reset Chat</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="feed" role="log" aria-live="polite"></main>
+
+  <div id="chips" aria-label="Quick replies"></div>
+
+  <div id="replybar" hidden>
+    <div class="rq"><span id="rqName"></span><span id="rqText"></span></div>
+    <button id="cancelReply" type="button" class="rq-x" aria-label="Cancel reply">✕</button>
+  </div>
+
+  <div id="tray" hidden aria-label="Stickers"></div>
+
+  <form id="composer" autocomplete="off">
+    <button id="stickerBtn" type="button" class="icon-btn sticker-btn" aria-label="Stickers" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2M9 9.5h.01M15 9.5h.01"/></svg>
+    </button>
+    <textarea id="input" rows="1" maxlength="500" placeholder="Message" enterkeyhint="send" aria-label="Message"></textarea>
+    <button id="send" type="submit" aria-label="Send" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12 2-12 2z"/></svg>
+    </button>
+  </form>
+</div>
+
+<div id="sheet" class="backdrop" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <h2 id="sheetTitle">Reset chat?</h2>
+    <p>This clears the conversation and starts the story over.</p>
+    <div class="sheet-actions">
+      <button id="cancelReset" class="btn">Cancel</button>
+      <button id="confirmReset" class="btn danger">Reset</button>
+    </div>
+  </div>
+</div>
+
+<noscript><p style="padding:20px;color:#eee">This chat needs JavaScript.</p></noscript>
+<script src="story.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
